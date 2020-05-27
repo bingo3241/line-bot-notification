@@ -35,7 +35,7 @@ function handleEvent(event) {
   // create a echoing text message
   return client.pushMessage(process.env.ADMIN_USERID, {
     type: 'text',
-    text: 'There is a customer asking questions that I cannot answer',
+    text: 'ALERT: A customer has asked questions that I cannot answer.',
   })
 }
 
