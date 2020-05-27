@@ -31,12 +31,21 @@ function handleEvent(event) {
     // ignore non-text-message event
     return Promise.resolve(null);
   }
-
-  // create a echoing text message
-  return client.pushMessage(process.env.ADMIN_USERID, {
+  if (event.message.text.includes('SCG')) {
+    return client.replyMessage(event.replyToken, {
+        type: 'text',
+        text: 'The Siam Cement Group Public Company Limited is the largest and oldest cement and building material company in Thailand and Southeast Asia.'
+    });
+  }
+  
+    client.replyMessage(event.replyToken, {
+        type: 'text',
+        text: 'The bot cannot answer that question. We have already notified the admin. Sorry for the inconvenience'
+    })
+    return client.pushMessage(process.env.ADMIN_USERID, {
     type: 'text',
     text: 'ALERT: A customer has asked questions that I cannot answer.',
-  })
+    })
 }
 
 // listen on port
