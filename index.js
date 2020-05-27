@@ -33,11 +33,10 @@ function handleEvent(event) {
   }
 
   // create a echoing text message
-  const echo = { type: 'text', text: event.message.text };
-  console.log(event.source.userId)
-
-  // use reply API
-  return client.replyMessage(event.replyToken, echo);
+  return client.pushMessage(process.env.ADMIN_USERID, {
+    type: 'text',
+    text: 'There is a customer asking questions that I cannot answer',
+  })
 }
 
 // listen on port
