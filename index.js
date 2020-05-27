@@ -31,7 +31,7 @@ function handleEvent(event) {
     // ignore non-text-message event
     return Promise.resolve(null);
   }
-  if (event.message.text.includes('SCG')) {
+  if (event.message.text.toLowerCase().includes('scg')) {
     return client.replyMessage(event.replyToken, {
         type: 'text',
         text: 'The Siam Cement Group Public Company Limited is the largest and oldest cement and building material company in Thailand and Southeast Asia.'
