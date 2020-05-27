@@ -11,7 +11,9 @@ const client = new line.Client(config);
 
 // create Express app
 const app = express();
-
+app.get('./', (req, res) => {
+    res.send('Hello World')
+})
 // register a webhook handler with middleware
 app.post('/callback', line.middleware(config), (req, res) => {
   Promise
